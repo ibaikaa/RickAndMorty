@@ -1,5 +1,5 @@
 //
-//  LocationsList.swift
+//  EpisodesView.swift
 //  RickAndMorty
 //
 //  Created by ibaikaa on 5/6/23.
@@ -7,31 +7,30 @@
 
 import SwiftUI
 
-struct LocationsList: View {
-    @State private var locations = [Location]()
+struct EpisodesView: View {
+    @State private var episodes = [Episode]()
     @State private var showAlert = false
     @State private var errorDescription = ""
     
     @State private var page = 1
     var body: some View {
         NavigationStack {
-            List(locations) { location in
-                NavigationLink(destination: LocationDetailedView(location: location)) {
-                    LocationCell(location: location)
+            List(episodes) { episode in
+                NavigationLink(destination: EpisodeDetailedView(episode: episode)) {
+                    EpisodeCell(episode: episode)
                 }
                 
-                if locations.isLastItem(location) && page.satisfiesMaxBound(for: .locations) {
+                if episodes.isLastItem(episode) && page.satisfiesMaxBound(for: .episodes) {
                     PagingLoadingView()
                         .onAppear {
                             page += 1
-                            fetchLocations()
+                            fetchEpisodes()
                         }
                 }
             }
-            .navigationBarTitle("Locations")
-            .listStyle(.sidebar)
+            .navigationBarTitle("Episodes")
         }
-        .onAppear { fetchLocations() }
+        .onAppear { fetchEpisodes() }
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("Ошибка ⚠️"),
@@ -40,11 +39,11 @@ struct LocationsList: View {
         }
     }
     
-    func fetchLocations() {
+    func fetchEpisodes() {
         Task {
             do {
-                let fetchedLocations = try await NetworkLayer.shared.getLocations(page: page).results
-                locations.append(contentsOf: fetchedLocations)
+                let fetchedEpisodes = try await NetworkLayer.shared.getEpisodes(page: page).results
+                episodes.append(contentsOf: fetchedEpisodes)
             } catch {
                 showAlert = true
                 
@@ -56,11 +55,10 @@ struct LocationsList: View {
             }
         }
     }
-    
 }
 
-struct LocationsView_Previews: PreviewProvider {
+struct EpisodesView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationsList()
+        EpisodesView()
     }
 }

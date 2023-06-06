@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharactersListView: View {
+struct CharactersView: View {
     @State private var characters = [Character]()
     @State private var showAlert = false
     @State private var errorDescription = ""
@@ -21,7 +21,7 @@ struct CharactersListView: View {
                     CharacterCell(character: character)
                 }
                 
-                if (characters.isLastItem(character)) && page.satisfiesMaxBound(for: .characters) {
+                if (characters.isLastItem(character)) && (page.satisfiesMaxBound(for: .characters)){
                     PagingLoadingView()
                         .onAppear {
                             page += 1
@@ -63,6 +63,6 @@ struct CharactersListView: View {
 
 struct CharactersListView_Previews: PreviewProvider {
     static var previews: some View {
-        CharactersListView()
+        CharactersView()
     }
 }
