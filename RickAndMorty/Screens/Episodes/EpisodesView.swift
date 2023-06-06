@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct EpisodesView: View {
+    @EnvironmentObject var episodesRouter: EpisodesCoordinator.Router
+    
     @State private var episodes = [Episode]()
     @State private var showAlert = false
     @State private var errorDescription = ""
     
     @State private var page = 1
     var body: some View {
-        NavigationStack {
-            List(episodes) { episode in
-                NavigationLink(destination: EpisodeDetailedView(episode: episode)) {
-                    EpisodeCell(episode: episode)
+        
+        List(episodes) { episode in
+            EpisodeCell(episode: episode)
+                .onTapGesture {
+                    episodesRouter.route(to: \.detailScreen, episode)
                 }
-                
-                if episodes.isLastItem(episode) && page.satisfiesMaxBound(for: .episodes) {
-                    PagingLoadingView()
-                        .onAppear {
-                            page += 1
-                            fetchEpisodes()
-                        }
-                }
+            
+            if episodes.isLastItem(episode) && page.satisfiesMaxBound(for: .episodes) {
+                PagingLoadingView()
+                    .onAppear {
+                        page += 1
+                        fetchEpisodes()
+                    }
             }
-            .navigationBarTitle("Episodes")
         }
         .onAppear { fetchEpisodes() }
         .alert(isPresented: $showAlert) {
@@ -55,6 +56,7 @@ struct EpisodesView: View {
             }
         }
     }
+    
 }
 
 struct EpisodesView_Previews: PreviewProvider {

@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct EpisodeDetailedView: View {
+    @EnvironmentObject var episodeRouter: EpisodesCoordinator.Router
+    
     @State var episode: Episode
     var body: some View {
-        NavigationStack {
+        VStack {
+            Button {
+                episodeRouter.popToRoot()
+            } label: {
+                VStack {
+                    Text("⬆️")
+                    
+                    Text("Go Back")
+                        .foregroundColor(.white)
+
+                }
+                .font(.system(.title2,  weight: .black))
+            }
+            
             Form {
                 Section("Info") {
                     InfoRowView(icon: "info", label: "Name", data: episode.name)
@@ -18,8 +33,9 @@ struct EpisodeDetailedView: View {
                     InfoRowView(icon: "barcode", label: "Code", data: episode.episode)
                 }
             }
-            .navigationBarTitle(episode.name)
         }
+        .background(.yellow)
+        
     }
 }
 

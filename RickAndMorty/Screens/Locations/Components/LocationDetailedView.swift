@@ -9,18 +9,17 @@ import SwiftUI
 
 struct LocationDetailedView: View {
     @State var location: Location
+    
     var body: some View {
-        NavigationStack {
-            Form {
-                Section("Info") {
-                    InfoRowView(icon: "info", label: "Name", data: location.name)
-                    InfoRowView(icon: "tornado", label: "Dimension", data: location.dimension)
-                    InfoRowView(icon: "globe.europe.africa.fill", label: "Type", data: location.type)
-                }
+        Form {
+            Section("Info") {
+                InfoRowView(icon: "info", label: "Name", data: location.name)
+                InfoRowView(icon: "tornado", label: "Dimension", data: location.dimension)
+                InfoRowView(icon: "globe.europe.africa.fill", label: "Type", data: location.type)
             }
-            .navigationBarTitle(location.name)
         }
     }
+    
 }
 
 struct LocationDetailedView_Previews: PreviewProvider {

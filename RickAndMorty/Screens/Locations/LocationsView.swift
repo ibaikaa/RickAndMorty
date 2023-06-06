@@ -8,29 +8,30 @@
 import SwiftUI
 
 struct LocationsView: View {
+    @EnvironmentObject var locationRouter: LocationsCoordinator.Router
+    
     @State private var locations = [Location]()
     @State private var showAlert = false
     @State private var errorDescription = ""
     
     @State private var page = 1
     var body: some View {
-        NavigationStack {
-            List(locations) { location in
-                NavigationLink(destination: LocationDetailedView(location: location)) {
-                    LocationCell(location: location)
+        List(locations) { location in
+            LocationCell(location: location)
+                .onTapGesture {
+                    locationRouter.route(to: \.detailScreen, location)
                 }
-                
-                if locations.isLastItem(location) && page.satisfiesMaxBound(for: .locations) {
-                    PagingLoadingView()
-                        .onAppear {
-                            page += 1
-                            fetchLocations()
-                        }
-                }
+            
+            if locations.isLastItem(location) && page.satisfiesMaxBound(for: .locations) {
+                PagingLoadingView()
+                    .onAppear {
+                        page += 1
+                        fetchLocations()
+                    }
             }
-            .navigationBarTitle("Locations")
-            .listStyle(.sidebar)
+            
         }
+        .listStyle(.sidebar)
         .onAppear { fetchLocations() }
         .alert(isPresented: $showAlert) {
             Alert(

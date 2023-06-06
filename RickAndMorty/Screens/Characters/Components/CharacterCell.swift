@@ -30,6 +30,8 @@ struct CharacterCell: View {
             }
             
             Spacer()
+            
+            Image(systemName: "arrow.right")
 
         }
         .padding(.horizontal)
@@ -38,7 +40,7 @@ struct CharacterCell: View {
 
 struct CharacterCell_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterDetailedView(character: Character(id: 2, name: "Morty Smith", status: "Alive", species: "Human", type: "", gender: "Male", origin:  RickAndMorty.CharacterLocation(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"), location: RickAndMorty.CharacterLocation(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"), image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg", episode: [ "https://rickandmortyapi.com/api/episode/51"], created: "2017-11-04T18:50:21.651Z")
+        CharacterCell(character: Character(id: 2, name: "Morty Smith", status: "Alive", species: "Human", type: "", gender: "Male", origin:  RickAndMorty.CharacterLocation(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"), location: RickAndMorty.CharacterLocation(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"), image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg", episode: [ "https://rickandmortyapi.com/api/episode/51"], created: "2017-11-04T18:50:21.651Z")
 )
     }
 }
