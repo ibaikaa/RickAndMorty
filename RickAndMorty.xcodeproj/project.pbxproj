@@ -89,9 +89,9 @@
 		8C72E5D02A2D3FC1008E07C4 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				8C8B18202A2F54F700A79BD9 /* Components */,
+				8C72E5DB2A2D4059008E07C4 /* CharactersView.swift */,
 				8C8B18162A2F391800A79BD9 /* CharactersCoordinator.swift */,
-				8C72E5D72A2D402D008E07C4 /* Detailed */,
-				8C72E5D62A2D4029008E07C4 /* List */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -116,23 +116,6 @@
 			path = Locations;
 			sourceTree = "<group>";
 		};
-		8C72E5D62A2D4029008E07C4 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				8C72E5EC2A2D5495008E07C4 /* Cell */,
-				8C72E5DB2A2D4059008E07C4 /* CharactersView.swift */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		8C72E5D72A2D402D008E07C4 /* Detailed */ = {
-			isa = PBXGroup;
-			children = (
-				8C72E5D82A2D403E008E07C4 /* CharacterDetailedView.swift */,
-			);
-			path = Detailed;
-			sourceTree = "<group>";
-		};
 		8C72E5E32A2D4084008E07C4 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,14 +132,6 @@
 				8C72E6082A2D6F17008E07C4 /* Int+SatisfiesMaxBounds.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8C72E5EC2A2D5495008E07C4 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				8C72E5DD2A2D4060008E07C4 /* CharacterCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		8C72E5F12A2D5B74008E07C4 /* Common */ = {
@@ -224,6 +199,15 @@
 				8C72E6102A2D7283008E07C4 /* LocationCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8C8B18202A2F54F700A79BD9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8C72E5D82A2D403E008E07C4 /* CharacterDetailedView.swift */,
+				8C72E5DD2A2D4060008E07C4 /* CharacterCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8CE56C8E2A2D0507003794EC = {

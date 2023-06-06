@@ -17,9 +17,8 @@ final class MainTabCoordinator: TabCoordinatable {
         ]
     )
     
-    @Route(tabItem: makeCharactersTab) var characters = makeCharacters
-    @Route(tabItem: makeEpisodesTab) var episodes = makeEpisodes
-    @Route(tabItem: makeLocationsTab) var locations = makeLocations
-
+    @Route(tabItem: makeCharactersTab, onTapped: onCharactersTapped) var characters = makeCharacters
+    @Route(tabItem: makeEpisodesTab, onTapped: onEpisodesTapped) var episodes = makeEpisodes
+    @Route(tabItem: makeLocationsTab, onTapped: onLocationsTapped) var locations = makeLocations
     
 }

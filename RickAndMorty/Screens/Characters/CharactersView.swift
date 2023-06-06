@@ -8,29 +8,27 @@
 import SwiftUI
 
 struct CharactersView: View {
+    @EnvironmentObject var charactersRouter: CharactersCoordinator.Router
+    
     @State private var characters = [Character]()
     @State private var showAlert = false
     @State private var errorDescription = ""
     @State private var page = 1
     
     var body: some View {
-        NavigationStack {
-            List(characters) { character in
-                
-                NavigationLink(destination: CharacterDetailedView(character: character)) {
-                    CharacterCell(character: character)
+        List(characters) { character in
+            CharacterCell(character: character)
+                .onTapGesture {
+                    charactersRouter.route(to: \.detailScreen, character)
                 }
-                
-                if (characters.isLastItem(character)) && (page.satisfiesMaxBound(for: .characters)){
-                    PagingLoadingView()
-                        .onAppear {
-                            page += 1
-                            fetchCharacters()
-                        }
-                }
-                
+            
+            if (characters.isLastItem(character)) && (page.satisfiesMaxBound(for: .characters)){
+                PagingLoadingView()
+                    .onAppear {
+                        page += 1
+                        fetchCharacters()
+                    }
             }
-            .navigationBarTitle("Characters")
         }
         .onAppear { fetchCharacters() }
         .alert(isPresented: $showAlert) {
