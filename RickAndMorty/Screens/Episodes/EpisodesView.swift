@@ -9,54 +9,27 @@ import SwiftUI
 
 struct EpisodesView: View {
     @EnvironmentObject var episodesRouter: EpisodesCoordinator.Router
+    @ObservedObject var viewModel = EpisodesViewModel()
     
-    @State private var episodes = [Episode]()
-    @State private var showAlert = false
-    @State private var errorDescription = ""
-    
-    @State private var page = 1
     var body: some View {
-        
-        List(episodes) { episode in
+        List(viewModel.episodes) { episode in
             EpisodeCell(episode: episode)
+                .onAppear {
+                    viewModel.loadMoreContent(currentItem: episode)
+                }
                 .onTapGesture {
                     episodesRouter.route(to: \.detailScreen, episode)
                 }
-            
-            if episodes.isLastItem(episode) && page.satisfiesMaxBound(for: .episodes) {
-                PagingLoadingView()
-                    .onAppear {
-                        page += 1
-                        fetchEpisodes()
-                    }
-            }
         }
-        .onAppear { fetchEpisodes() }
-        .alert(isPresented: $showAlert) {
+        .onAppear { viewModel.getEpisodes() }
+        .alert(isPresented: $viewModel.showAlert) {
             Alert(
                 title: Text("Ошибка ⚠️"),
-                message: Text(errorDescription)
+                message: Text(viewModel.errorDescription)
             )
         }
     }
-    
-    func fetchEpisodes() {
-        Task {
-            do {
-                let fetchedEpisodes = try await NetworkLayer.shared.getEpisodes(page: page).results
-                episodes.append(contentsOf: fetchedEpisodes)
-            } catch {
-                showAlert = true
-                
-                if let error = error as? ApiError {
-                    errorDescription = error.description
-                } else {
-                    errorDescription = error.localizedDescription
-                }
-            }
-        }
-    }
-    
+        
 }
 
 struct EpisodesView_Previews: PreviewProvider {

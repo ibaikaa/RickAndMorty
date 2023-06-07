@@ -47,7 +47,7 @@ final class NetworkLayer {
         return try await getDataForRequest(URLRequest(url: url))
     }
     
-    public func getEpisodes(page: Int) async throws -> EpisodesGroup {
+    public func getEpisodes(page: Int = 1) async throws -> EpisodesGroup {
         guard let url = ApiRouter
             .getEpisodes(page: page)
             .url
@@ -56,7 +56,7 @@ final class NetworkLayer {
         return try await getDataForRequest(URLRequest(url: url))
     }
     
-    public func getLocations(page: Int) async throws -> LocationsGroup {
+    public func getLocations(page: Int = 1) async throws -> LocationsGroup {
         guard let url = ApiRouter.getLocations(page: page).url else {
             throw ApiError.invalidURL
         }

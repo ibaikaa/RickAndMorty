@@ -9,6 +9,7 @@ import Foundation
 
 struct LocationsGroup: Decodable {
     let results: [Location]
+    let info: Info
 }
 
 struct Location: Decodable, Identifiable, DTOProtocol {

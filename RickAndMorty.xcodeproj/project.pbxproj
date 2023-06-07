@@ -33,6 +33,8 @@
 		8C8B181F2A2F482600A79BD9 /* LocationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8B181E2A2F482600A79BD9 /* LocationsCoordinator.swift */; };
 		8C94E84B2A2DE73C00645E88 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 8C94E84A2A2DE73C00645E88 /* Stinsen */; };
 		8CA1397A2A308ADF001BC9E7 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA139792A308ADF001BC9E7 /* LocationsViewModel.swift */; };
+		8CA1397C2A308C3C001BC9E7 /* EpisodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1397B2A308C3C001BC9E7 /* EpisodesViewModel.swift */; };
+		8CA1397E2A30963B001BC9E7 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1397D2A30963B001BC9E7 /* Info.swift */; };
 		8CE56C9B2A2D0507003794EC /* RickAndMortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE56C9A2A2D0507003794EC /* RickAndMortyApp.swift */; };
 		8CE56C9D2A2D0507003794EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE56C9C2A2D0507003794EC /* ContentView.swift */; };
 		8CE56C9F2A2D0509003794EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE56C9E2A2D0509003794EC /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		8C8B181C2A2F414A00A79BD9 /* EpisodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCoordinator.swift; sourceTree = "<group>"; };
 		8C8B181E2A2F482600A79BD9 /* LocationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCoordinator.swift; sourceTree = "<group>"; };
 		8CA139792A308ADF001BC9E7 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
+		8CA1397B2A308C3C001BC9E7 /* EpisodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewModel.swift; sourceTree = "<group>"; };
+		8CA1397D2A30963B001BC9E7 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		8CE56C972A2D0507003794EC /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE56C9A2A2D0507003794EC /* RickAndMortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyApp.swift; sourceTree = "<group>"; };
 		8CE56C9C2A2D0507003794EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				8C8B18212A2F582D00A79BD9 /* Components */,
 				8C8B181C2A2F414A00A79BD9 /* EpisodesCoordinator.swift */,
 				8C72E5DF2A2D406E008E07C4 /* EpisodesView.swift */,
+				8CA1397B2A308C3C001BC9E7 /* EpisodesViewModel.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				8CE56CAE2A2D0780003794EC /* Characters.swift */,
 				8C72E5F82A2D6485008E07C4 /* Episodes.swift */,
 				8C72E6122A2D72BE008E07C4 /* Locations.swift */,
+				8CA1397D2A30963B001BC9E7 /* Info.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -369,11 +375,13 @@
 				8C8B18172A2F391800A79BD9 /* CharactersCoordinator.swift in Sources */,
 				8CA1397A2A308ADF001BC9E7 /* LocationsViewModel.swift in Sources */,
 				8CE56CAF2A2D0780003794EC /* Characters.swift in Sources */,
+				8CA1397E2A30963B001BC9E7 /* Info.swift in Sources */,
 				8C72E5E22A2D4076008E07C4 /* LocationsView.swift in Sources */,
 				8C8B18192A2F3F3800A79BD9 /* MainTabCoordinator+Factory.swift in Sources */,
 				8C6820BA2A307A0C00D4F69E /* DTOProtocol.swift in Sources */,
 				8C8B18152A2F386000A79BD9 /* MainTabCoordinator.swift in Sources */,
 				8C8B181D2A2F414A00A79BD9 /* EpisodesCoordinator.swift in Sources */,
+				8CA1397C2A308C3C001BC9E7 /* EpisodesViewModel.swift in Sources */,
 				8C72E6112A2D7283008E07C4 /* LocationCell.swift in Sources */,
 				8CE56CB72A2D12E3003794EC /* ApiError.swift in Sources */,
 				8C8B181F2A2F482600A79BD9 /* LocationsCoordinator.swift in Sources */,

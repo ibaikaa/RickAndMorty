@@ -1,5 +1,5 @@
 //
-//  LocationsViewModel.swift
+//  EpisodesViewModel.swift
 //  RickAndMorty
 //
 //  Created by ibaikaa on 7/6/23.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-final class LocationsViewModel: ObservableObject {
+final class EpisodesViewModel: ObservableObject {
     
     // MARK: - Published properties
-    @Published var locations: [Location] = []
+    @Published var episodes: [Episode] = []
     @Published var showAlert = false
     @Published var errorDescription = ""
     
@@ -20,7 +20,7 @@ final class LocationsViewModel: ObservableObject {
     private var totalPages = 0
     
     // MARK: - Init() method
-    init() { fetchTotalPages() }
+    init() { getTotalPages() }
     
     // MARK: - Helping methods
     private func updateUIForErrorOccurence(_ error: Error) {
@@ -34,11 +34,11 @@ final class LocationsViewModel: ObservableObject {
     }
 
     // MARK: - API call private methods
-    private func fetchTotalPages() {
+    private func getTotalPages() {
         Task {
             do {
                 totalPages = try await networkLayer
-                    .getLocations()
+                    .getEpisodes()
                     .info
                     .pages
                 
@@ -49,16 +49,16 @@ final class LocationsViewModel: ObservableObject {
     }
     
     // MARK: - API call public methods
-    public func fetchLocations() {
+    public func getEpisodes() {
         Task {
             do {
-                let fetchedLocations = try await networkLayer
-                    .getLocations(page: pagesCount)
+                let fetchedEpisodes = try await networkLayer
+                    .getEpisodes(page: pagesCount)
                     .results
      
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
-                    self.locations.append(contentsOf: fetchedLocations)
+                    self.episodes.append(contentsOf: fetchedEpisodes)
                 }
                 
             } catch {
@@ -67,15 +67,15 @@ final class LocationsViewModel: ObservableObject {
         }
     }
     
-    public func loadMoreContent(currentItem item: Location) {
+    public func loadMoreContent(currentItem item: Episode) {
         if ContentLoadingAnalyzer.shouldLoadMoreContent(
-            of: locations,
+            of: episodes,
             item: item,
             currentPage: pagesCount,
             totalPages: totalPages
         ) {
             pagesCount += 1
-            fetchLocations()
+            getEpisodes()
         }
     }
     

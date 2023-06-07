@@ -9,9 +9,10 @@ import Foundation
 
 struct EpisodesGroup: Decodable {
     let results: [Episode]
+    let info: Info
 }
 
-struct Episode: Decodable, Identifiable {
+struct Episode: Decodable, Identifiable, DTOProtocol {
     let id: Int
     let name, airDate, episode: String
     let created: String

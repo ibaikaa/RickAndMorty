@@ -13,11 +13,6 @@ struct CharacterGroup: Decodable {
     let info: Info
 }
 
-struct Info: Decodable {
-    let pages: Int
-    let count: Int
-}
-
 struct Character: Decodable, Identifiable, DTOProtocol {
     let id: Int
     let name, status, species, type: String
