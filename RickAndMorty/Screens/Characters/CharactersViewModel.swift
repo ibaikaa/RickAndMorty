@@ -23,7 +23,7 @@ final class CharactersViewModel: ObservableObject {
     init() { fetchTotalPages() }
     
     // MARK: - Helping methods
-    private func updateUIForErrorOccurence(_ error: Error) {
+    private func handleErrorOccurence(_ error: Error) {
         showAlert = true
     
         if let apiError = error as? ApiError {
@@ -43,7 +43,7 @@ final class CharactersViewModel: ObservableObject {
                     .pages
                 
             } catch {
-                updateUIForErrorOccurence(error)
+                handleErrorOccurence(error)
             }
         }
     }
@@ -62,7 +62,7 @@ final class CharactersViewModel: ObservableObject {
                 }
                 
             } catch {
-                updateUIForErrorOccurence(error)
+                handleErrorOccurence(error)
             }
         }
     }
