@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C6820B62A30697500D4F69E /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6820B52A30697500D4F69E /* CharactersViewModel.swift */; };
+		8C6820B82A30793C00D4F69E /* ContentLoadingAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6820B72A30793C00D4F69E /* ContentLoadingAnalyzer.swift */; };
+		8C6820BA2A307A0C00D4F69E /* DataTransferObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6820B92A307A0C00D4F69E /* DataTransferObjectProtocol.swift */; };
 		8C72E5D92A2D403E008E07C4 /* CharacterDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E5D82A2D403E008E07C4 /* CharacterDetailedView.swift */; };
 		8C72E5DC2A2D4059008E07C4 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E5DB2A2D4059008E07C4 /* CharactersView.swift */; };
 		8C72E5DE2A2D4060008E07C4 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C72E5DD2A2D4060008E07C4 /* CharacterCell.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C6820B52A30697500D4F69E /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
+		8C6820B72A30793C00D4F69E /* ContentLoadingAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoadingAnalyzer.swift; sourceTree = "<group>"; };
+		8C6820B92A307A0C00D4F69E /* DataTransferObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferObjectProtocol.swift; sourceTree = "<group>"; };
 		8C72E5D82A2D403E008E07C4 /* CharacterDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailedView.swift; sourceTree = "<group>"; };
 		8C72E5DB2A2D4059008E07C4 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		8C72E5DD2A2D4060008E07C4 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 				8C8B18202A2F54F700A79BD9 /* Components */,
 				8C8B18162A2F391800A79BD9 /* CharactersCoordinator.swift */,
 				8C72E5DB2A2D4059008E07C4 /* CharactersView.swift */,
+				8C6820B52A30697500D4F69E /* CharactersViewModel.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8C72E60B2A2D6F62008E07C4 /* Constants.swift */,
+				8C6820B72A30793C00D4F69E /* ContentLoadingAnalyzer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 				8CE56CAE2A2D0780003794EC /* Characters.swift */,
 				8C72E5F82A2D6485008E07C4 /* Episodes.swift */,
 				8C72E6122A2D72BE008E07C4 /* Locations.swift */,
+				8C6820B92A307A0C00D4F69E /* DataTransferObjectProtocol.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -340,10 +349,12 @@
 				8C72E5F52A2D60E1008E07C4 /* PagingLoadingView.swift in Sources */,
 				8CE56CAB2A2D058B003794EC /* NetworkLayer.swift in Sources */,
 				8C72E5F92A2D6485008E07C4 /* Episodes.swift in Sources */,
+				8C6820B82A30793C00D4F69E /* ContentLoadingAnalyzer.swift in Sources */,
 				8C72E5EB2A2D5416008E07C4 /* Collection+isLastItem.swift in Sources */,
 				8C72E6092A2D6F17008E07C4 /* Int+SatisfiesMaxBounds.swift in Sources */,
 				8CE56C9D2A2D0507003794EC /* ContentView.swift in Sources */,
 				8C72E5D92A2D403E008E07C4 /* CharacterDetailedView.swift in Sources */,
+				8C6820B62A30697500D4F69E /* CharactersViewModel.swift in Sources */,
 				8C72E5E02A2D406E008E07C4 /* EpisodesView.swift in Sources */,
 				8CE56CB22A2D09BE003794EC /* ApiRouter.swift in Sources */,
 				8C72E6152A2D7444008E07C4 /* LocationDetailedView.swift in Sources */,
@@ -356,6 +367,7 @@
 				8CE56CAF2A2D0780003794EC /* Characters.swift in Sources */,
 				8C72E5E22A2D4076008E07C4 /* LocationsView.swift in Sources */,
 				8C8B18192A2F3F3800A79BD9 /* MainTabCoordinator+Factory.swift in Sources */,
+				8C6820BA2A307A0C00D4F69E /* DataTransferObjectProtocol.swift in Sources */,
 				8C8B18152A2F386000A79BD9 /* MainTabCoordinator.swift in Sources */,
 				8C8B181D2A2F414A00A79BD9 /* EpisodesCoordinator.swift in Sources */,
 				8C72E6112A2D7283008E07C4 /* LocationCell.swift in Sources */,

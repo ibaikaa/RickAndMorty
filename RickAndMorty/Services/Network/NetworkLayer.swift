@@ -38,7 +38,7 @@ final class NetworkLayer {
         return try decode(data: data)
     }
 
-    public func getCharacters(page: Int) async throws -> CharacterGroup {
+    public func getCharacters(page: Int = 1) async throws -> CharacterGroup {
         guard let url = ApiRouter
             .getCharacters(page: page)
             .url

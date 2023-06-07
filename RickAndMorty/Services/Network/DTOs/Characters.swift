@@ -10,9 +10,15 @@ import Foundation
 // MARK: - Character
 struct CharacterGroup: Decodable {
     let results: [Character]
+    let info: Info
 }
 
-struct Character: Decodable, Identifiable{
+struct Info: Decodable {
+    let pages: Int
+    let count: Int
+}
+
+struct Character: Decodable, Identifiable, DataTransferObjectProtocol {
     let id: Int
     let name, status, species, type: String
     let gender: String
