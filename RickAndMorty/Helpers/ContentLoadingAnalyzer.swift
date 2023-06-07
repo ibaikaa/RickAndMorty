@@ -10,7 +10,7 @@ import Foundation
 final class ContentLoadingAnalyzer {
     private init () { }
     
-    static func shouldLoadMoreContent<T: DataTransferObjectProtocol> (
+    static func shouldLoadMoreContent<T: DTOProtocol> (
         of array: [T],
         item: T,
         currentPage: Int,

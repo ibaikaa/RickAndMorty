@@ -18,7 +18,7 @@ struct Info: Decodable {
     let count: Int
 }
 
-struct Character: Decodable, Identifiable, DataTransferObjectProtocol {
+struct Character: Decodable, Identifiable, DTOProtocol {
     let id: Int
     let name, status, species, type: String
     let gender: String
