@@ -8,53 +8,25 @@
 import SwiftUI
 
 struct LocationsView: View {
-    @EnvironmentObject var locationRouter: LocationsCoordinator.Router
+    @EnvironmentObject var locationsRouter: LocationsCoordinator.Router
+    @ObservedObject var viewModel = LocationsViewModel()
     
-    @State private var locations = [Location]()
-    @State private var showAlert = false
-    @State private var errorDescription = ""
-    
-    @State private var page = 1
     var body: some View {
-        List(locations) { location in
+        List(viewModel.locations) { location in
             LocationCell(location: location)
-                .onTapGesture {
-                    locationRouter.route(to: \.detailScreen, location)
-                }
-            
-            if locations.isLastItem(location) && page.satisfiesMaxBound(for: .locations) {
-                PagingLoadingView()
-                    .onAppear {
-                        page += 1
-                        fetchLocations()
-                    }
+            .onAppear {
+                viewModel.loadMoreContent(currentItem: location)
             }
-            
+            .onTapGesture {
+                locationsRouter.route(to: \.detailScreen, location)
+            }
         }
-        .listStyle(.sidebar)
-        .onAppear { fetchLocations() }
-        .alert(isPresented: $showAlert) {
+        .onAppear { viewModel.fetchLocations() }
+        .alert(isPresented: $viewModel.showAlert) {
             Alert(
                 title: Text("Ошибка ⚠️"),
-                message: Text(errorDescription)
+                message: Text(viewModel.errorDescription)
             )
-        }
-    }
-    
-    func fetchLocations() {
-        Task {
-            do {
-                let fetchedLocations = try await NetworkLayer.shared.getLocations(page: page).results
-                locations.append(contentsOf: fetchedLocations)
-            } catch {
-                showAlert = true
-                
-                if let error = error as? ApiError {
-                    errorDescription = error.description
-                } else {
-                    errorDescription = error.localizedDescription
-                }
-            }
         }
     }
     

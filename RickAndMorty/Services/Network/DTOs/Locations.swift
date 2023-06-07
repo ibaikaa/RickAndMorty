@@ -11,7 +11,7 @@ struct LocationsGroup: Decodable {
     let results: [Location]
 }
 
-struct Location: Decodable, Identifiable {
+struct Location: Decodable, Identifiable, DTOProtocol {
     let id: Int
     let name, type, dimension: String
     let residents: [String]
